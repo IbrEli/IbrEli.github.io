@@ -225,7 +225,7 @@ nav ul li a {
 
 /* Home Section */
 section#home {
-    background-image: url('background2.jpg'); /* Replace with your image */
+    background-image: url('/background2.jpg'); /* Replace with your image */
     background-size: cover; /* Ensures the image covers the entire section */
     background-position: center; /* Centers the image */
     height: 100vh; /* Full viewport height */
