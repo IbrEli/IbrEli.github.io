@@ -3,85 +3,502 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Expert Window Repair Services">
-    <title>Window Repair | MRTWINDOWS</title>
+    <meta name="description" content="Garden & Conservatory Services - MRT Windows">
+    <title>Garden & Conservatories | MRT Windows</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Project Page Specific Styles */
+        .project-hero {
+            background: linear-gradient(135deg, #059669, #10b981);
+            padding: 120px 0 60px;
+            color: white;
+            text-align: center;
+        }
+
+        .project-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .project-content {
+            padding: 5rem 0;
+        }
+
+        .project-intro {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .project-intro h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #059669;
+        }
+
+        .project-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .feature-box:nth-child(1) { animation-delay: 0.1s; }
+        .feature-box:nth-child(2) { animation-delay: 0.2s; }
+        .feature-box:nth-child(3) { animation-delay: 0.3s; }
+        .feature-box:nth-child(4) { animation-delay: 0.4s; }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-box i {
+            font-size: 3rem;
+            color: #059669;
+            margin-bottom: 1rem;
+        }
+
+        .feature-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-box p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .gallery-section {
+            background: #f9fafb;
+            padding: 5rem 0;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.15s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.25s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.35s; }
+        .gallery-item:nth-child(7) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(8) { animation-delay: 0.45s; }
+        .gallery-item:nth-child(9) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(10) { animation-delay: 0.55s; }
+        .gallery-item:nth-child(11) { animation-delay: 0.6s; }
+        .gallery-item:nth-child(12) { animation-delay: 0.65s; }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(5, 150, 105, 0.9), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay-text {
+            color: white;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #059669, #10b981);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-hero h1 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>MRTWINDOWS</h1>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="mrtwindowslogo.jpg" alt="MRT Windows Logo">
+                    <span>MRT<strong>WINDOWS</strong></span>
+                </div>
+
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="index.html#portfolio">Portfolio</a>
+                    <a href="index.html#contact" class="btn-nav">Get Quote</a>
+                </nav>
+
+                <div class="phone">
+                    <i class="fas fa-phone"></i>
+                    <span>020 3930 9558</span>
+                </div>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#portfolio">Portfolio</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <!-- Service Details Section -->
-    <section id="service-details">
+    <!-- Hero Section -->
+    <section class="project-hero">
         <div class="container">
-            <h2>Garden</h2>
-            <p>
-                At MRTWindows, we offer full conservatory services, including new installations, repairs, and upgrades. From building stylish and energy-efficient conservatories to fixing roofs, windows, and doors, we handle it all. Trust our team for expert craftsmanship and dependable service.
-            </p>
-            <p>
-                Our team handles all types of garden builds and repairs with precision, ensuring your builds are safe, functional, and aesthetically pleasing.
-            </p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="index.html#services">Services</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Garden & Conservatories</span>
+            </div>
+            <h1><i class="fas fa-tree"></i> Garden & Conservatory Services</h1>
+            <p>Create your perfect outdoor living space with our expert conservatory installations</p>
         </div>
     </section>
 
-    <!-- Image Showcase Section -->
-    <section id="image-showcase">
+    <!-- Content Section -->
+    <section class="project-content">
         <div class="container">
-            <h3>Our Garden Projects</h3>
-            <div class="gallery-container">
-                <div class="gallery-item">
-                    <img src="garden1.jpeg" alt="Window Repair Project 1">
+            <div class="project-intro">
+                <h2>Transform Your Outdoor Space</h2>
+                <p>At MRT Windows, we offer full conservatory services, including new installations, repairs, and upgrades. From building stylish and energy-efficient conservatories to fixing roofs, windows, and doors, we handle it all. Trust our team for expert craftsmanship and dependable service.</p>
+                <p>Our team handles all types of garden builds and repairs with precision, ensuring your builds are safe, functional, and aesthetically pleasing.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-box">
+                    <i class="fas fa-building"></i>
+                    <h3>New Conservatories</h3>
+                    <p>Custom-built conservatories designed to your exact specifications</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="garden2.jpeg" alt="Window Repair Project 2">
+
+                <div class="feature-box">
+                    <i class="fas fa-sun"></i>
+                    <h3>Garden Rooms</h3>
+                    <p>Modern garden room installations perfect for year-round use</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="garden3.jpeg" alt="Window Repair Project 3">
+
+                <div class="feature-box">
+                    <i class="fas fa-hammer"></i>
+                    <h3>Repairs & Upgrades</h3>
+                    <p>Professional repair services for roofs, windows, and doors</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="4.jpeg" alt="Window Repair Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="garden5.jpeg" alt="Window Repair Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="garden6.jpeg" alt="Window Repair Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="garden7.jpeg" alt="Window Repair Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="garden8.jpeg" alt="Window Repair Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="garden9.jpeg" alt="Window Repair Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="garden10.jpeg" alt="Window Repair Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="garden11.jpeg" alt="Window Repair Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="garden12.jpeg" alt="Window Repair Project 4">
+
+                <div class="feature-box">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Energy Efficient</h3>
+                    <p>Modern insulation and glazing for maximum energy efficiency</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 MRTWINDOWS. All rights reserved.</p>
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-header">
+                <h2>Our Garden & Conservatory Projects</h2>
+                <p>Browse through our portfolio of stunning outdoor spaces</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="garden1.jpeg" alt="Garden Project 1" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Modern Conservatory Build</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="garden2.jpeg" alt="Garden Project 2" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Luxury Garden Room</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="garden3.jpeg" alt="Garden Project 3" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Contemporary Conservatory</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="4.jpeg" alt="Garden Project 4" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Glass Extension Design</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="garden5.jpeg" alt="Garden Project 5" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Traditional Conservatory</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="garden6.jpeg" alt="Garden Project 6" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Modern Garden Room</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="garden7.jpeg" alt="Garden Project 7" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Premium Conservatory Install</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="garden8.jpeg" alt="Garden Project 8" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Elegant Garden Space</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="garden9.jpeg" alt="Garden Project 9" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Custom Conservatory Build</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="garden10.jpeg" alt="Garden Project 10" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Outdoor Living Solution</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="garden11.jpeg" alt="Garden Project 11" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Bespoke Garden Room</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="garden12.jpeg" alt="Garden Project 12" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Stunning Conservatory</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to Create Your Dream Garden Space?</h2>
+                <p>Get a free, no-obligation quote for your conservatory or garden room project</p>
+                <div class="cta-buttons">
+                    <a href="index.html#contact" class="btn btn-primary">Get Free Quote</a>
+                    <a href="tel:02039309558" class="btn btn-secondary">Call Us Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="logo">
+                        <img src="mrtwindowslogo.jpg" alt="MRT Windows">
+                        <span>MRT<strong>WINDOWS</strong></span>
+                    </div>
+                    <p>Professional window, door, and conservatory services since 2008. Quality craftsmanship you can trust.</p>
+                    <div class="social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about">About Us</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="index.html#portfolio">Portfolio</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="project1.html">Doors</a>
+                    <a href="project2.html">Conservatories</a>
+                    <a href="project3.html">Windows</a>
+                    <a href="project4.html">Stairs</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>020 3930 9558</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@mrtwindows.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon - Fri: 8AM - 6PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 MRT Windows. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

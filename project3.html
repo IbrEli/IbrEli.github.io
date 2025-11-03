@@ -3,91 +3,518 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Expert Commercial Window Installation">
-    <title>Commercial Projects | MRTWINDOWS</title>
+    <meta name="description" content="Professional Window Installation Services - MRT Windows">
+    <title>Window Installation | MRT Windows</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Project Page Specific Styles */
+        .project-hero {
+            background: linear-gradient(135deg, #059669, #10b981);
+            padding: 120px 0 60px;
+            color: white;
+            text-align: center;
+        }
+
+        .project-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .project-content {
+            padding: 5rem 0;
+        }
+
+        .project-intro {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .project-intro h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #059669;
+        }
+
+        .project-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .feature-box:nth-child(1) { animation-delay: 0.1s; }
+        .feature-box:nth-child(2) { animation-delay: 0.2s; }
+        .feature-box:nth-child(3) { animation-delay: 0.3s; }
+        .feature-box:nth-child(4) { animation-delay: 0.4s; }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-box i {
+            font-size: 3rem;
+            color: #059669;
+            margin-bottom: 1rem;
+        }
+
+        .feature-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-box p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .gallery-section {
+            background: #f9fafb;
+            padding: 5rem 0;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.15s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.25s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.35s; }
+        .gallery-item:nth-child(7) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(8) { animation-delay: 0.45s; }
+        .gallery-item:nth-child(9) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(10) { animation-delay: 0.55s; }
+        .gallery-item:nth-child(11) { animation-delay: 0.6s; }
+        .gallery-item:nth-child(12) { animation-delay: 0.65s; }
+        .gallery-item:nth-child(13) { animation-delay: 0.7s; }
+        .gallery-item:nth-child(14) { animation-delay: 0.75s; }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(5, 150, 105, 0.9), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay-text {
+            color: white;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #059669, #10b981);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-hero h1 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>MRTWINDOWS</h1>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="mrtwindowslogo.jpg" alt="MRT Windows Logo">
+                    <span>MRT<strong>WINDOWS</strong></span>
+                </div>
+
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="index.html#portfolio">Portfolio</a>
+                    <a href="index.html#contact" class="btn-nav">Get Quote</a>
+                </nav>
+
+                <div class="phone">
+                    <i class="fas fa-phone"></i>
+                    <span>020 3930 9558</span>
+                </div>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#portfolio">Portfolio</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <!-- Service Details Section -->
-    <section id="service-details">
+    <!-- Hero Section -->
+    <section class="project-hero">
         <div class="container">
-            <h2>Commercial Projects</h2>
-            <p>
-                At MRTWindows, we handle all aspects of window services, from new installations to repairs and upgrades. Our team can replace old windows, install energy-efficient models, and fix any issues with frames or glass. Count on us for reliable, high-quality workmanship every time.
-            </p>
-            <p>
-                From custom glass fronts to large-scale installations, we deliver projects that meet your business's needs and exceed expectations.
-            </p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="index.html#services">Services</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Windows</span>
+            </div>
+            <h1><i class="fas fa-home"></i> Professional Window Installation</h1>
+            <p>Energy-efficient windows for residential and commercial properties</p>
         </div>
     </section>
 
-    <!-- Image Showcase Section -->
-    <section id="image-showcase">
+    <!-- Content Section -->
+    <section class="project-content">
         <div class="container">
-            <h3>Our Commercial Window Projects</h3>
-            <div class="gallery-container">
-                <div class="gallery-item">
-                    <img src="window1.jpeg" alt="Commercial Window Project 1">
+            <div class="project-intro">
+                <h2>Expert Window Services</h2>
+                <p>At MRT Windows, we handle all aspects of window services, from new installations to repairs and upgrades. Our team can replace old windows, install energy-efficient models, and fix any issues with frames or glass. Count on us for reliable, high-quality workmanship every time.</p>
+                <p>From custom glass fronts to large-scale installations, we deliver projects that meet your needs and exceed expectations.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-box">
+                    <i class="fas fa-house-user"></i>
+                    <h3>Residential Windows</h3>
+                    <p>Beautiful and energy-efficient windows for homes of all styles</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="window2.jpeg" alt="Commercial Window Project 2">
+
+                <div class="feature-box">
+                    <i class="fas fa-building"></i>
+                    <h3>Commercial Windows</h3>
+                    <p>Professional window solutions for offices, retail, and industrial buildings</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="window3.jpeg" alt="Commercial Window Project 3">
+
+                <div class="feature-box">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Energy Efficient</h3>
+                    <p>Modern double and triple-glazed windows that reduce energy costs</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="window4.jpeg" alt="Commercial Window Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="window5.jpeg" alt="Commercial Window Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="window6.jpeg" alt="Commercial Window Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="window7.jpeg" alt="Commercial Window Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="window8.jpeg" alt="Commercial Window Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="window9.jpeg" alt="Commercial Window Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="window10.jpeg" alt="Commercial Window Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="window11.jpeg" alt="Commercial Window Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="window12.jpeg" alt="Commercial Window Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="window13.jpeg" alt="Commercial Window Project 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="window14.jpeg" alt="Commercial Window Project 4">
+
+                <div class="feature-box">
+                    <i class="fas fa-wrench"></i>
+                    <h3>Repairs & Replacements</h3>
+                    <p>Expert repair services and full window replacement solutions</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 MRTWINDOWS. All rights reserved.</p>
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-header">
+                <h2>Our Window Installation Projects</h2>
+                <p>Browse through our portfolio of quality window installations</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="window1.jpeg" alt="Window Project 1" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Modern Residential Windows</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="window2.jpeg" alt="Window Project 2" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Energy Efficient Installation</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="window3.jpeg" alt="Window Project 3" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Commercial Window Solution</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="window4.jpeg" alt="Window Project 4" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Custom Window Design</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="window5.jpeg" alt="Window Project 5" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Bay Window Installation</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="window6.jpeg" alt="Window Project 6" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Double Glazed Windows</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="window7.jpeg" alt="Window Project 7" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Office Building Windows</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="window8.jpeg" alt="Window Project 8" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Contemporary Window Style</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="window9.jpeg" alt="Window Project 9" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Luxury Home Windows</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="window10.jpeg" alt="Window Project 10" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Traditional Window Design</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="window11.jpeg" alt="Window Project 11" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Premium Installation</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="window12.jpeg" alt="Window Project 12" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Skylight Installation</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="window13.jpeg" alt="Window Project 13" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Modern Glass Solution</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="window14.jpeg" alt="Window Project 14" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-text">Complete Window Replacement</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready for New Windows?</h2>
+                <p>Get a free, no-obligation quote today and improve your property's energy efficiency</p>
+                <div class="cta-buttons">
+                    <a href="index.html#contact" class="btn btn-primary">Get Free Quote</a>
+                    <a href="tel:02039309558" class="btn btn-secondary">Call Us Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="logo">
+                        <img src="mrtwindowslogo.jpg" alt="MRT Windows">
+                        <span>MRT<strong>WINDOWS</strong></span>
+                    </div>
+                    <p>Professional window, door, and conservatory services since 2008. Quality craftsmanship you can trust.</p>
+                    <div class="social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about">About Us</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="index.html#portfolio">Portfolio</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="project1.html">Doors</a>
+                    <a href="project2.html">Conservatories</a>
+                    <a href="project3.html">Windows</a>
+                    <a href="project4.html">Stairs</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>020 3930 9558</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@mrtwindows.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon - Fri: 8AM - 6PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 MRT Windows. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
